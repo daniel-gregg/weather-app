@@ -1,0 +1,36 @@
+body{
+    height: 100%;
+    margin: 5%px;
+}
+
+header{
+    width: 100%;
+    font-size: 200%;
+    background-color: aqua;
+    text-align: center;
+    padding: 40px 0;
+    border-radius: 15px;
+}
+
+sidebar{
+    width: 30%;
+    height: 500px;
+    border: 2px solid black;
+    float: left;
+    background-color: bisque;
+    margin-top: 10px;
+    box-shadow: 5px 10px #888888;
+    border-radius: 15px;
+}
+
+#weather-data {
+    display: block;
+    width: 65%;
+    height: 500px;
+    border: 2px solid black;
+    float: right;
+    margin-top: 10px;
+    box-shadow: 5px 10px #888888;
+    border-radius: 15px;
+}
+
