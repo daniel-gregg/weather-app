@@ -23,6 +23,11 @@ header{
     border-radius: 15px;
 }
 
+#search-box{
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
 #weather-data {
     display: flex;
     width: 65%;
@@ -62,4 +67,13 @@ header{
     border: 2px solid grey;
     margin: 10px;
     margin-left: 20px;
+}
+
+.city-tile{
+    border: 2px solid grey;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
 }
