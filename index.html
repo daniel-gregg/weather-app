@@ -9,15 +9,29 @@
 </head>
 <body>
     <header>🐑 Weather Dashboard</header>
-    <sidebar>
-        XXX
-    </sidebar>
+    <div id="sidebar">
+        <div id="search-box">
+            <p>Search for a city:</p>
+            <!-- add searh box here -->
+            <div>
+                <input id="cityLookupTextField" type="text" placeholder="Enter a location" autocomplete="on">
+                <button id="searchSubmit" value="Submit"></button>
+             </div>
+        </div>
+        <div id="cities-box">
+            <!-- dynamically add cities list here -->
+        </div>
+    </div>
     <container id="weather-data">
         <div id="current-weather">
             YYY
         </div>
         <div id="future-weather">
-            ZZZ
+            <div class="weather-tile" id="tile1">XX</div>
+            <div class="weather-tile" id="tile2">XX</div>
+            <div class="weather-tile" id="tile3">XX</div>
+            <div class="weather-tile" id="tile4">XX</div>
+            <div class="weather-tile" id="tile5">XX</div>
         </div>
     </container>
     <script src="assets/script.js"></script>

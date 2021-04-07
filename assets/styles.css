@@ -12,7 +12,7 @@ header{
     border-radius: 15px;
 }
 
-sidebar{
+#sidebar{
     width: 30%;
     height: 500px;
     border: 2px solid black;
@@ -24,7 +24,7 @@ sidebar{
 }
 
 #weather-data {
-    display: block;
+    display: flex;
     width: 65%;
     height: 500px;
     border: 2px solid black;
@@ -32,5 +32,34 @@ sidebar{
     margin-top: 10px;
     box-shadow: 5px 10px #888888;
     border-radius: 15px;
+    flex-direction: column;
 }
 
+#current-weather{
+     float: left;
+     width: 80%;
+     border: 2px solid black;
+     height: 40%;
+     margin: 0 auto;
+     margin-top: 10px;
+     padding-top: 10px;
+}
+
+#future-weather{
+    width: 80%;
+    border: 2px solid black;
+    height: 40%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-tile {
+    width: 15%;
+    text-align: center;
+    border: 2px solid grey;
+    margin: 10px;
+    margin-left: 20px;
+}
