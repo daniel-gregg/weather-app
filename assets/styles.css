@@ -26,6 +26,13 @@ header{
 #search-box{
     margin: 0 auto;
     margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+#searchSubmit {
+    width: 70px;
+    height: 25px;
+    margin: 0 auto;
 }
 
 #weather-data {
@@ -72,8 +79,8 @@ header{
 .city-tile{
     border: 2px solid grey;
     border-radius: 5px;
-    box-shadow: 5px 10px #888888;
-    margin: 0 auto;
+    margin: 5px auto;
     text-align: center;
     width: 200px;
+    cursor: pointer;
 }
