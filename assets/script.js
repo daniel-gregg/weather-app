@@ -76,9 +76,9 @@ function fetchCurrentWeather(cityName){
     return fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
-        fetchUVI(data)
+        var UV = fetchUVI(data)
         saveCurrent(cityName)
-        renderCurrentWeather(data)
+        renderCurrentWeather(data,UV)
     })
 }
 
@@ -92,6 +92,7 @@ function fetchFutureWeather(cityName){
     })
 }
 
+var UVI = ""
 function fetchUVI(data){
     var lat = data.coord.lat
     var lon = data.coord.lon
@@ -99,7 +100,8 @@ function fetchUVI(data){
     return fetch(requesturl)
     .then(response => response.json())
     .then(data => {
-        UVI = data;
+        UVI = data[0].value;
+        renderUVI(UVI)
     })
 }
 
@@ -130,26 +132,32 @@ function renderCurrentWeather(data){
 
     const tileText = `
     <div id="iconDiv"><img id="icon" src=http://openweathermap.org/img/wn/${iconCode}@2x.png>
-    <table id="current-weather-tile">
-        <tr>
-            <th>Average Temperature:</th>
-            <th>Minimum Temperature: </th>
-            <th>Maximum Temperature: </th>
-            <th>Sunrise: </th>
-            <th>Sunset: </th>
-            <th>Weather: </th>
-        </tr>
-        <tr>
-            <td> ${avgTemp} Celcius</td>
-            <td> ${minTemp}</td>
-            <td> ${maxTemp}</td>
-            <td> ${sunRise}</td>
-            <td> ${sunSet}</td>
-            <td> ${weather}</td>
-        </tr>
-    </table>
+        <table id="current-weather-tile">
+            <tr>
+                <th>Average Temperature:</th>
+                <th>Minimum Temperature: </th>
+                <th>Maximum Temperature: </th>
+                <th>Sunrise: </th>
+                <th>Sunset: </th>
+                <th>Weather: </th>
+            </tr>
+            <tr>
+                <td> ${avgTemp} Celcius</td>
+                <td> ${minTemp}</td>
+                <td> ${maxTemp}</td>
+                <td> ${sunRise}</td>
+                <td> ${sunSet}</td>
+                <td> ${weather}</td>
+            </tr>
+        </table>
+    <p id="uvi"> </p>
+    </div>
     ` 
     $currentTile.insertAdjacentHTML('afterbegin',tileText)
+}
+
+function renderUVI(UVI){
+    document.getElementById("uvi").innerHTML = `<strong>UV Index: ${UVI}</strong>`
 }
 
 function renderFutureWeather(data){
