@@ -82,11 +82,13 @@ function fetchCurrentWeather(cityName){
     })
 }
 
+var requestData = ""
 function fetchFutureWeather(cityName){
     var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
     return fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
+        requestData = data
         renderFutureWeather(data)
         $weatherBox.style.display = "flex"
     })
@@ -161,7 +163,15 @@ function renderUVI(UVI){
 }
 
 function renderFutureWeather(data){
-    var dataArray = data.list.slice(1,6)
+    //get days ahead - the future weather array is every 3 hours...
+    var dataArray = [
+        data.list[7],
+        data.list[14],
+        data.list[22],
+        data.list[30],
+        data.list[39]
+    ]
+
     for(i=0; i<dataArray.length; i++){
         renderFutureTile(dataArray[i],i)
     }
@@ -175,7 +185,7 @@ function renderFutureTile(arrayItem,index){
 
     const tileText = `
     <div id="future-weather-tile${i}" class="future-weather-tile">
-        <img id="iconFuture${i}" class="iconFuture" src=http://openweathermap.org/img/wn/${iconCode}.png>
+        <img id="iconFuture${i}" class="iconFuture" src=http://openweathermap.org/img/wn/${iconCode}.png><br>
          <strong>${day}</strong><br>
          ${avgTemp} C<br>
          ${weather}<br>
