@@ -82,13 +82,11 @@ function fetchCurrentWeather(cityName){
     })
 }
 
-var requestData = ""
 function fetchFutureWeather(cityName){
     var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
     return fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
-        requestData = data
         renderFutureWeather(data)
         $weatherBox.style.display = "flex"
     })
