@@ -84,7 +84,7 @@ function fetchCurrentWeather(cityName){
 
 var requestData = ""
 function fetchFutureWeather(cityName){
-    var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=metric`;
     return fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
@@ -98,7 +98,7 @@ var UVI = ""
 function fetchUVI(data){
     var lat = data.coord.lat
     var lon = data.coord.lon
-    var requesturl = `http://api.openweathermap.org/data/2.5/uvi/forecast?lat=${lat}&lon=${lon}&cnt=${maxCities-1}&appid=${apiKey}`;
+    var requesturl = `https://api.openweathermap.org/data/2.5/uvi/forecast?lat=${lat}&lon=${lon}&cnt=${maxCities-1}&appid=${apiKey}`;
     return fetch(requesturl)
     .then(response => response.json())
     .then(data => {
