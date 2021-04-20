@@ -72,7 +72,7 @@ function getApiRequest(){
 }
 
 function fetchCurrentWeather(cityName){
-    var requestUrl = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     return fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
